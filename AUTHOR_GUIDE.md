@@ -194,13 +194,13 @@ how to use Colab's secrets manager, as Chapter 2's does.
 with no download step:
 
 ```
-https://colab.research.google.com/github/<user>/<repo>/blob/main/notebooks/Chapter_01_Neural_Network_From_Scratch.ipynb
+https://colab.research.google.com/github/zith008/ai-book-exercises/blob/main/notebooks/Chapter_01_Neural_Network_From_Scratch.ipynb
 ```
 
 Put an **Open in Colab badge** at the top of every notebook and in the README:
 
 ```markdown
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/USER/REPO/blob/main/notebooks/Chapter_01_Neural_Network_From_Scratch.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/zith008/ai-book-exercises/blob/main/notebooks/Chapter_01_Neural_Network_From_Scratch.ipynb)
 ```
 
 The badge in each notebook is **generated**, not pasted. `build/nbtools.py` holds three
@@ -222,7 +222,7 @@ public before the book ships, and check one badge in a logged-out browser.
 In the **printed book**, at the end of each chapter:
 
 > **Practise this chapter.** Work through the Chapter 1 exercise notebook at
-> `github.com/USER/REPO` — you write the neuron, the backward pass and the training loop,
+> `github.com/zith008/ai-book-exercises` — you write the neuron, the backward pass and the training loop,
 > and the notebook checks your work. No installation required.
 
 One short, memorable URL for the repository (or a redirect you own) beats per-chapter
