@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.envs/
+
+# Notebook state
+.ipynb_checkpoints/
+
+# Secrets — never commit a key
+.env
+*.key
+
+# macOS
+.DS_Store
