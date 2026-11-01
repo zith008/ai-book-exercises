@@ -14,6 +14,15 @@ from pathlib import Path
 EXERCISE = "exercise"
 SOLUTION = "solution"
 
+# Where the notebooks are published. Change these three lines and rebuild and every
+# "Open in Colab" badge follows. Set REPO to None while the repository is private or
+# unpublished: no badge is written, rather than one that 404s for readers.
+REPO = "zith008/ai-book-exercises"
+BRANCH = "main"
+NOTEBOOK_DIR = "notebooks"
+
+BADGE = ("https://colab.research.google.com/assets/colab-badge.svg")
+
 
 class Cell:
     def __init__(self, kind, exercise, solution=None, form=False):
@@ -64,6 +73,15 @@ def _cell_json(cell, variant):
     }
 
 
+def _badge_cell(name):
+    """A markdown cell with the Colab badge for this notebook, or None."""
+    if not REPO:
+        return None
+    url = f"https://colab.research.google.com/github/{REPO}/blob/{BRANCH}/{NOTEBOOK_DIR}/{name}"
+    return md(f'<a href="{url}" target="_parent">'
+              f'<img src="{BADGE}" alt="Open this notebook in Colab"/></a>')
+
+
 def notebook(cells, variant, title):
     return {
         "nbformat": 4,
@@ -88,6 +106,9 @@ def build(cells, out_dir, stem, solution_banner):
         if variant == SOLUTION:
             body = [md(solution_banner)] + body
         name = f"{stem}{suffix}.ipynb"
+        badge = _badge_cell(name)
+        if badge is not None:
+            body = [badge] + body
         path = out_dir / name
         path.write_text(
             json.dumps(notebook(body, variant, name), indent=1, ensure_ascii=False) + "\n",

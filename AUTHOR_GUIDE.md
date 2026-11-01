@@ -203,7 +203,21 @@ Put an **Open in Colab badge** at the top of every notebook and in the README:
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/USER/REPO/blob/main/notebooks/Chapter_01_Neural_Network_From_Scratch.ipynb)
 ```
 
-(Add it once the repository exists — a badge pointing at a 404 is worse than none.)
+The badge in each notebook is **generated**, not pasted. `build/nbtools.py` holds three
+lines:
+
+```python
+REPO = "zith008/ai-book-exercises"
+BRANCH = "main"
+NOTEBOOK_DIR = "notebooks"
+```
+
+Change them, rebuild, and all 34 badges follow. Set `REPO = None` to drop the badge
+entirely — better than one pointing at a 404.
+
+**While the repository is private, a badge only opens for someone signed in to GitHub with
+access to it.** That is right for review and wrong for readers, so flip the repository to
+public before the book ships, and check one badge in a logged-out browser.
 
 In the **printed book**, at the end of each chapter:
 
@@ -264,7 +278,8 @@ makes it credible rather than preachy.
 
 ## 8. Known gaps, honestly
 
-* **No Colab badges yet** — they need the repository URL (§5).
+* **The repository is private**, so the Colab badges work for you and not yet for readers.
+  Making it public is the last step before publication (§5).
 * **Chapters 1 and 2 are denser than 3 to 17.** They were written first, to a different
   spec. They work, and a reader moving from chapter 2 to chapter 3 will notice the notebooks
   get lighter. Worth either trimming 1 and 2 or accepting it as a deliberate on-ramp.
